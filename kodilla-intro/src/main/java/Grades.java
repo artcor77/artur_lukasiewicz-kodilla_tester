@@ -21,12 +21,13 @@ public class Grades {
             return result;
         }
 
-        public int average () {
+        public int average() {
             for (int i = 0; i < grades.length; i++) {
                 sum += grades[i];
             }
             sum /= grades.length;
             // Sposób znaleziony w tutorialu. Nie wiem, czy odpowiedni na tym etapie.
+            return average();
         }
 
 }
