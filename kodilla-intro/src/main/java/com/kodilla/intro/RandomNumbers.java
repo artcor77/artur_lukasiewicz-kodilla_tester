@@ -1,3 +1,5 @@
+package com.kodilla.intro;
+
 import java.util.Random;
 
 public class RandomNumbers {
