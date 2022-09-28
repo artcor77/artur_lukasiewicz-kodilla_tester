@@ -1,3 +1,5 @@
+package com.kodilla.intro;
+
 public class Calculator {
     static final double PI = 3.1415927;          // [1]
     static int counter = 0;                      // [2]

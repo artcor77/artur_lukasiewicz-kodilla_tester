@@ -1,3 +1,5 @@
+package com.kodilla.intro;
+
 public class Application {
     String name = "Adam";
     double age = 40.5;
@@ -12,9 +14,9 @@ public class Application {
 
         if (name != null) {
             if (age > 30 && height > 160) {
-                System.out.println("User is older than 30 and taller than 160cm");
+                System.out.println("com.kodilla.intro.User is older than 30 and taller than 160cm");
             } else {
-                System.out.println("User is 30 (or younger) or 160cm (or shorter)");
+                System.out.println("com.kodilla.intro.User is 30 (or younger) or 160cm (or shorter)");
             }
         }
     }

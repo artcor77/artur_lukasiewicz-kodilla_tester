@@ -1,3 +1,5 @@
+package com.kodilla.intro;
+
 import java.util.Scanner;
 public class UserDialogs {
     public static String getUsername() {

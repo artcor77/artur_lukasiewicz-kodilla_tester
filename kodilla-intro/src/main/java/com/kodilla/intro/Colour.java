@@ -1,3 +1,5 @@
+package com.kodilla.intro;
+
 public class Colour {
     public static void main(String[] args) {
         UserDialogs whatColour = new UserDialogs();

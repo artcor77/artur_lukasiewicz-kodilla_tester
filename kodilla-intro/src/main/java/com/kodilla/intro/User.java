@@ -1,3 +1,5 @@
+package com.kodilla.intro;
+
 public class User {
     User[] user;
     String name;
