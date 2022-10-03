@@ -11,6 +11,7 @@ public class Win11 extends OperatingSystem {
         super.turnOn();
         System.out.println("Win11 was turned on");
     }
+    @Override
     public void turnOff() {
         super.turnOff();
         System.out.println("Win11 was turned off");
