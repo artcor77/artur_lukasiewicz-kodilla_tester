@@ -3,15 +3,15 @@ package com.kodilla.abstracts.homework;
 public class AutomationTester extends Job{
 
     private String responsibilities;
-    public AutomationTester(String responsibilities){
-        this.responsibilities = responsibilities;
-    }
+
     public AutomationTester(){
-        responsibilities = "Create program to testing";
+
+        this.responsibilities = "Create program to testing";
     }
 
     @Override
-    public void whatResponsibilities() {
+    public void PrintResponsibilities() {
+
         System.out.println(responsibilities);
     }
 }

@@ -9,12 +9,12 @@ public class RectangularTriangle extends Shape {
     }
 
     @Override
-    public void calculateCircuit() {
-        System.out.println("Circuit of the triangle is: "+(a+b+c));
+    public double calculateCircuit() {
+        return a+b+c;
     }
 
     @Override
-    public void calculateField() {
-        System.out.println("Field of the triangle is: "+(a*b)/2);
+    public double calculateField() {
+        return (a*b)/2;
     }
 }

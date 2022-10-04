@@ -7,12 +7,13 @@ public class Square extends Shape{
     }
 
     @Override
-    public void calculateCircuit() {
-        System.out.println("Circuit of the square is: "+a*4);
+    public double calculateCircuit() {
+        return a*4;
+
     }
 
     @Override
-    public void calculateField() {
-        System.out.println("Field of the square is: "+a*a);
+    public double calculateField() {
+        return a*a;
     }
 }

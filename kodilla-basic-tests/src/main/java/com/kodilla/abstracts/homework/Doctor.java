@@ -3,14 +3,13 @@ package com.kodilla.abstracts.homework;
 public class Doctor extends Job{
 
     private String responsibilities;
-    public Doctor(String responsibilities){
-        this.responsibilities = responsibilities;
-    }
     public Doctor(){
-        responsibilities = "Healing people";
+
+        this.responsibilities = "Healing people";
     }
     @Override
-    public void whatResponsibilities() {
+    public void PrintResponsibilities() {
+
         System.out.println(responsibilities);
     }
 }

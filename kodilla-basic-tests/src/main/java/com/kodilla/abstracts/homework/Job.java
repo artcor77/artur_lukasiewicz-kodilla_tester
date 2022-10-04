@@ -4,7 +4,7 @@ public abstract class Job {
     private double salary;
     public String responsibilities;
 
-public abstract void whatResponsibilities();
+public abstract void PrintResponsibilities();
 
     public String getResponsibilities() {
         return responsibilities;

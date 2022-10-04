@@ -2,7 +2,7 @@ package com.kodilla.abstracts.homework;
 
 public abstract class Shape {
 
-    public abstract void calculateCircuit();
-    public abstract void calculateField();
+    public abstract double calculateCircuit();
+    public abstract double calculateField();
 
 }

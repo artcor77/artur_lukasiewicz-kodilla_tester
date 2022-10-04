@@ -15,17 +15,17 @@ public class Person {
         Person person = new Person("Adam",30,"Taxi Driver");
         person.responsibilitiesOfPerson();
         TaxiDriver taxiDriver = new TaxiDriver();
-        taxiDriver.whatResponsibilities();
+        taxiDriver.PrintResponsibilities();
 
         Person person2 = new Person("Julia",35,"Doctor");
         person2.responsibilitiesOfPerson();
         Doctor doctor = new Doctor();
-        doctor.whatResponsibilities();
+        doctor.PrintResponsibilities();
 
         Person person3 = new Person("Robert",25,"Automation Tester");
         person3.responsibilitiesOfPerson();
         AutomationTester automationTester = new AutomationTester();
-        automationTester.whatResponsibilities();
+        automationTester.PrintResponsibilities();
 
     }
     public void responsibilitiesOfPerson(){
