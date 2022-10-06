@@ -3,7 +3,6 @@ package com.kodilla.intro;
 public class Grades {
         private int[] grades;
         private int size;
-        private double sum;
 
     public Grades() {
             this.grades = new int[10];
@@ -24,13 +23,12 @@ public class Grades {
         }
 
         public int average() {
+            double sum = 0;
             for (int i = 0; i < grades.length; i++) {
                 sum += grades[i];
             }
             sum /= grades.length;
-            // Sposób znaleziony w tutorialu. Nie wiem, czy odpowiedni na tym etapie.
             return average();
         }
-
 }
 
