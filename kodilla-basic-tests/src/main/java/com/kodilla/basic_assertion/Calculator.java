@@ -13,4 +13,5 @@ public class Calculator {
     public double exponentiation(int a, int b) {
         return Math.pow(a,b);
     }
+
 }
