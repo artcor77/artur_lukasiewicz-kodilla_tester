@@ -10,8 +10,7 @@ public class AutomationTester extends Job{
     }
 
     @Override
-    public void PrintResponsibilities() {
-
-        System.out.println(responsibilities);
+    public String getResponsibilities() {
+        return responsibilities;
     }
 }

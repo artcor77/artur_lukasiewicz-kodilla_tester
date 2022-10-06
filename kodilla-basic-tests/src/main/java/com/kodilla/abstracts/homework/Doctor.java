@@ -8,8 +8,7 @@ public class Doctor extends Job{
         this.responsibilities = "Healing people";
     }
     @Override
-    public void PrintResponsibilities() {
-
-        System.out.println(responsibilities);
+    public String getResponsibilities() {
+        return responsibilities;
     }
 }
