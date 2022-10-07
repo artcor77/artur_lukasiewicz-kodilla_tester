@@ -9,9 +9,7 @@ public class Square extends Shape{
     @Override
     public double calculateCircuit() {
         return a*4;
-
     }
-
     @Override
     public double calculateField() {
         return a*a;

@@ -7,7 +7,6 @@ public class RectangularTriangle extends Shape {
         this.a = a;
         this.b = b;
     }
-
     @Override
     public double calculateCircuit() {
         return a+b+c;
