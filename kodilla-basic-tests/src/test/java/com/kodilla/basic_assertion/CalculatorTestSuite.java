@@ -34,10 +34,14 @@ public class CalculatorTestSuite {
         // Użyj delty.
         
         double exponentiationResult = calculator.exponentiation(a, b);
-        assertEquals(25, exponentiationResult, 0.001);
+        assertEquals(25, exponentiationResult);
         double exponentiationResultMinus = calculator.exponentiation(c, b);
-        assertEquals(25, exponentiationResultMinus,0.001);
+        assertEquals(25, exponentiationResultMinus);
         double exponentiationResultZero = calculator.exponentiation(e, b);
-        assertEquals(0, exponentiationResultZero,0.001);
+        assertEquals(0, exponentiationResultZero);
+        double exponentiationResultZeroExp = calculator.exponentiation(b, e);
+        assertEquals(1, exponentiationResultZeroExp,0.001);
+        double exponentiationResultMinusExp = calculator.exponentiation(b, c);
+        assertEquals(0.031, exponentiationResultMinusExp,0.001);
     }
 }
