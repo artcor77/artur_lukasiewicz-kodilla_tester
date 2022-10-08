@@ -4,4 +4,7 @@ public class ResultChecker {
 
     public static boolean assertEquals(double expected, double actual) {
         return expected == actual;
-    }}
+    }
+
+
+}
