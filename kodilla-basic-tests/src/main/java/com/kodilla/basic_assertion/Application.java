@@ -8,7 +8,7 @@ public class Application {
         int a = 5;
         int b = 8;
         int sumResult = calculator.sum(a,b);
-        boolean correct = ResultChecker.assertEquals(13, sumResult);
+        boolean correct = ResultChecker.assertEquals(3.66, 13, sumResult);
         if (correct) {
             System.out.println("Metoda sum działa poprawnie dla liczb " + a + " i " + b);
         } else {
@@ -16,7 +16,7 @@ public class Application {
         }
 
         int subtractResult = calculator.subtract(a,b);
-        boolean correctSubtract = ResultChecker.assertEquals(-3, subtractResult);
+        boolean correctSubtract = ResultChecker.assertEquals(3.66, -3, subtractResult);
         if (correctSubtract) {
             System.out.println("Metoda subtract działa poprawnie dla liczb " + a + " i " + b);
         } else {
@@ -25,7 +25,7 @@ public class Application {
         int c = 5;
         int d = 2;
         double exponentiationResult = calculator.exponentiation(c,d);
-        boolean correctExponentiation = ResultChecker.assertEquals(25, exponentiationResult);
+        boolean correctExponentiation = ResultChecker.assertEquals(3.66, 25, exponentiationResult);
         if (correctExponentiation) {
             System.out.println("Metoda exponentiation działa poprawnie dla liczb " + c + " i " + d);
         } else {
