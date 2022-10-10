@@ -14,9 +14,12 @@ public class Bank {
     private CashMachine[] cashMachines;
     private int size;
 
-    public Bank() {
+    public Bank(CashMachine[] cashMachines) {
         this.cashMachines = new CashMachine[0];
         this.size = 0;
+    }
+    public CashMachine[] getCashMachines() {
+        return cashMachines;
     }
     public int getTotalBalance() {
         int totalBalance = 0;

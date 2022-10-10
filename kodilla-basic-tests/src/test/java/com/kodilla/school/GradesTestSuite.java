@@ -20,8 +20,8 @@ public class GradesTestSuite {
 
         int[] values = grades.getValues();
         assertEquals(3.66, 2, values.length);
-        assertEquals(3.66, 4, values[0]);
-        assertEquals(3.66, 2, values[1]);
+        assertEquals(3.66, 4, values.length);
+        assertEquals(3.66, 2, values.length);
     }
     @Test
     public void shouldCalculateAverage() {
@@ -30,11 +30,11 @@ public class GradesTestSuite {
         grades.add(2);
         grades.add(5);
 
-        assertEquals(3.66, grades.getAverage(), 0.01);
+        assertEquals(3.66, grades.getAverage(), 0.001);
     }
     @Test
     public void shouldReturnAverageEqualsZeroIsArrayIsEmpty() {
         Grades grades = new Grades();
-        assertEquals(0, grades.getAverage(), 0.0001);
+        assertEquals(0, grades.getAverage(), 0.001);
     }
 }

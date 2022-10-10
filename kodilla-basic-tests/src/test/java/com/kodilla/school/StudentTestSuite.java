@@ -20,10 +20,10 @@ public class StudentTestSuite {
         double mathsAverage = student.getMathsAverage();
         double physicsAverage = student.getPhysicsAverage();
 
-        assertEquals(3.33, geographyAverage, 0.01);
-        assertEquals(3, historyAverage, 0.01);
-        assertEquals(0, mathsAverage, 0.01);
-        assertEquals(0, physicsAverage, 0.01);
+        assertEquals(3.33, geographyAverage, 0.001);
+        assertEquals(3, historyAverage, 0.001);
+        assertEquals(0, mathsAverage, 0.001);
+        assertEquals(0, physicsAverage, 0.001);
     }
     @Test
     public void shouldCalculateAveragesIfValuesAreOutsideRange() {
@@ -43,15 +43,15 @@ public class StudentTestSuite {
         double mathsAverage = student.getMathsAverage();
         double physicsAverage = student.getPhysicsAverage();
 
-        assertEquals(4, geographyAverage, 0.01);
-        assertEquals(0, historyAverage, 0.01);
-        assertEquals(0, mathsAverage, 0.01);
-        assertEquals(3, physicsAverage, 0.01);
+        assertEquals(4, geographyAverage, 0.001);
+        assertEquals(0, historyAverage, 0.001);
+        assertEquals(0, mathsAverage, 0.001);
+        assertEquals(3, physicsAverage, 0.001);
     }
     @Test
     public void averageShouldBeZeroIfStudentDontHaveGrades() {
         Student student = new Student("Martin");
-        assertEquals(0, student.getAverage(), 0.0001);
+        assertEquals(0, student.getAverage(), 0.001);
     }
     @Test
     public void shouldCalculateStudentAverage() {

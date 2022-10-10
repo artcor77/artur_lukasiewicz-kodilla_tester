@@ -57,21 +57,21 @@ public class CashMachine {
         return sum;
     }
     public int getSumOfWithdrawals() {
-        int cash = 0;
-        for (int i = 0; i < size; i++) {
+        int sumOfWithdrawals = 0;
+        for (int i = 0; i < this.transactions.length; i++) {
             if (transactions[i] < 0) {
-                cash++;
+                sumOfWithdrawals += transactions[i];
             }
-        } return cash;
+        } return sumOfWithdrawals;
     }
 
     public int getSumOfDeposits(){
-        int cash = 0;
-        for (int i = 0; i < size; i++) {
+        int sumOfDeposits = 0;
+        for (int i = 0; i < this.transactions.length; i++) {
             if (transactions[i] > 0) {
-                cash++;
+                sumOfDeposits += transactions[i];
             }
-        } return cash;
+        } return sumOfDeposits;
     }
     public int getNumberOfDeposits() {
         int numberOfDeposits = 0;
