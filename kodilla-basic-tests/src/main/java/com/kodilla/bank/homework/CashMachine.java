@@ -56,4 +56,38 @@ public class CashMachine {
         }
         return sum;
     }
+    public int getSumOfWithdrawals() {
+        int cash = 0;
+        for (int i = 0; i < size; i++) {
+            if (transactions[i] < 0) {
+                cash++;
+            }
+        } return cash;
+    }
+
+    public int getSumOfDeposits(){
+        int cash = 0;
+        for (int i = 0; i < size; i++) {
+            if (transactions[i] > 0) {
+                cash++;
+            }
+        } return cash;
+    }
+    public int getNumberOfDeposits() {
+        int numberOfDeposits = 0;
+        for (int i = 0; i < this.transactions.length; i++) {
+            if (transactions[i] > 0)
+                numberOfDeposits++;
+        }
+        return numberOfDeposits;
+    }
+
+    public int getNumberOfWithdrawals() {
+        int numbersOfWithdrawals = 0;
+        for (int i = 0; i < this.transactions.length; i++) {
+            if (transactions[i] < 0)
+                numbersOfWithdrawals++;
+        }
+        return numbersOfWithdrawals;
+    }
 }
