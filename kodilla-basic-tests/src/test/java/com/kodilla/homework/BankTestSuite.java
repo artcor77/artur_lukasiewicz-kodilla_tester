@@ -7,23 +7,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BankTestSuite {
-
-    @Test
-    public void shouldHaveThreeCashMachines() {
-        CashMachine a1 = new CashMachine();
-        CashMachine a2 = new CashMachine();
-        CashMachine a3 = new CashMachine();
-
-        Bank bank = new Bank( new CashMachine[] {a1, a2, a3});
-        CashMachine[] cashMachines = bank.getCashMachines();
-        assertEquals(3, cashMachines.length);
-    }
-    @Test
-    public void shouldHaveZeroCashMachines() {
-        Bank bank = new Bank( new CashMachine[]{});
-        CashMachine[] cashMachines = bank.getCashMachines();
-        assertEquals(0, cashMachines.length);
-    }
     @Test
     public void shouldGetTotalBalance() {
         CashMachine a1 = new CashMachine();
@@ -35,7 +18,6 @@ public class BankTestSuite {
         a3.add(-200);
 
         Bank bank = new Bank( new CashMachine[] {a1, a2, a3});
-        bank.getCashMachines();
         assertEquals(1300, bank.getTotalBalance());
     }
     @Test
@@ -49,7 +31,6 @@ public class BankTestSuite {
         a3.add(-200);
 
         Bank bank = new Bank( new CashMachine[] {a1, a2, a3});
-        bank.getCashMachines();
         assertEquals(1, bank.getTotalNumberOfWithdrawals());
     }
     @Test
@@ -63,7 +44,6 @@ public class BankTestSuite {
         a3.add(200);
 
         Bank bank = new Bank( new CashMachine[] {a1, a2, a3});
-        bank.getCashMachines();
         assertEquals(0, bank.getTotalNumberOfWithdrawals());
     }
     @Test
@@ -77,7 +57,6 @@ public class BankTestSuite {
         a3.add(-200);
 
         Bank bank = new Bank( new CashMachine[] {a1, a2, a3});
-        bank.getCashMachines();
         assertEquals(2, bank.getTotalNumberOfDeposits());
     }
     @Test
@@ -91,7 +70,6 @@ public class BankTestSuite {
         a3.add(-200);
 
         Bank bank = new Bank( new CashMachine[] {a1, a2, a3});
-        bank.getCashMachines();
         assertEquals(0, bank.getTotalNumberOfDeposits());
     }
     @Test
@@ -105,7 +83,6 @@ public class BankTestSuite {
         a3.add(-200);
 
         Bank bank = new Bank( new CashMachine[] {a1, a2, a3});
-        bank.getCashMachines();
         assertEquals(500, bank.getTotalAverageOfDeposits());
     }
     @Test
@@ -119,7 +96,6 @@ public class BankTestSuite {
         a3.add(-200);
 
         Bank bank = new Bank( new CashMachine[] {a1, a2, a3});
-        bank.getCashMachines();
         assertEquals(-200, bank.getTotalAverageOfWithdrawals());
     }
 }
