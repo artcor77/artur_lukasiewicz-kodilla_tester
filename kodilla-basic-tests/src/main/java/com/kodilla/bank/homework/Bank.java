@@ -19,6 +19,7 @@ public class Bank {
         this.size = 0;
     }
     public CashMachine[] getCashMachines() {
+
         return cashMachines;
     }
     public int getTotalBalance() {
