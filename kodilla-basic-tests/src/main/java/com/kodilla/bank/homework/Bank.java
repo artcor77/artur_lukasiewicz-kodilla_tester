@@ -15,7 +15,7 @@ public class Bank {
     private int size;
 
     public Bank(CashMachine[] cashMachines) {
-        this.cashMachines = new CashMachine[0];
+        this.cashMachines = cashMachines;
         this.size = 0;
     }
     public CashMachine[] getCashMachines() {
