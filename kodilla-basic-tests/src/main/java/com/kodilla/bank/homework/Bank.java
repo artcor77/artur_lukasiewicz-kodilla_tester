@@ -44,19 +44,29 @@ public class Bank {
         return totalNumberOfDeposits;
     }
 
-    public int getTotalAverageOfDeposits() {
-        int totalSumOfDeposits = 0;
+    public double getTotalAverageOfDeposits() {
+        int depositsCount = getTotalNumberOfDeposits();
+        if (depositsCount == 0) {
+            return 0;
+        }
+
+        double totalSumOfDeposits = 0;
         for (int i = 0; i < cashMachines.length; i++) {
             totalSumOfDeposits += cashMachines[i].getSumOfDeposits();
         }
-        return totalSumOfDeposits / getTotalNumberOfDeposits();
+        return totalSumOfDeposits / depositsCount;
     }
 
-    public int getTotalAverageOfWithdrawals() {
-        int totalSumInMinus = 0;
+    public double getTotalAverageOfWithdrawals() {
+        int withdrawalsCount = getTotalNumberOfWithdrawals();
+        if (withdrawalsCount == 0) {
+            return 0;
+        }
+
+        double totalSumInMinus = 0;
         for (int i = 0; i < cashMachines.length; i++) {
             totalSumInMinus += cashMachines[i].getSumOfWithdrawals();
         }
-        return totalSumInMinus / getTotalNumberOfWithdrawals();
+        return totalSumInMinus / withdrawalsCount;
     }
 }
