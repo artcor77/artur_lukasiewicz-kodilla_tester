@@ -67,6 +67,6 @@ public class Bank {
         for (int i = 0; i < cashMachines.length; i++) {
             totalSumInMinus += cashMachines[i].getSumOfWithdrawals();
         }
-        return totalSumInMinus / withdrawalsCount;
+        return -totalSumInMinus / withdrawalsCount;
     }
 }
