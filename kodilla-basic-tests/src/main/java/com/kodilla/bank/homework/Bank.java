@@ -18,10 +18,7 @@ public class Bank {
         this.cashMachines = cashMachines;
         this.size = 0;
     }
-    public CashMachine[] getCashMachines() {
 
-        return cashMachines;
-    }
     public int getTotalBalance() {
         int totalBalance = 0;
         for (int i = 0; i < cashMachines.length; i++) {
@@ -30,6 +27,7 @@ public class Bank {
         }
         return totalBalance;
     }
+
     public int getTotalNumberOfWithdrawals() {
         int totalNumberOfWithdrawals = 0;
         for (int i = 0; i < cashMachines.length; i++) {
@@ -37,6 +35,7 @@ public class Bank {
         }
         return totalNumberOfWithdrawals;
     }
+
     public int getTotalNumberOfDeposits() {
         int totalNumberOfDeposits = 0;
         for (int i = 0; i < cashMachines.length; i++) {
@@ -44,6 +43,7 @@ public class Bank {
         }
         return totalNumberOfDeposits;
     }
+
     public int getTotalAverageOfDeposits() {
         int totalSumOfDeposits = 0;
         for (int i = 0; i < cashMachines.length; i++) {
