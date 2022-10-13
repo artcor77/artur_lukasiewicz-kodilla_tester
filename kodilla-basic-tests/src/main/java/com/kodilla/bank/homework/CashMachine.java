@@ -41,7 +41,7 @@ public class CashMachine {
         int sumOfWithdrawals = 0;
         for (int i = 0; i < this.transactions.length; i++) {
             if (transactions[i] < 0) {
-                sumOfWithdrawals += transactions[i];
+                sumOfWithdrawals -= transactions[i];
             }
         }
         return sumOfWithdrawals;
