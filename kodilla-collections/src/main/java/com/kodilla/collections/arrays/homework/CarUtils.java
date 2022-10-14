@@ -1,18 +1,16 @@
 package com.kodilla.collections.arrays.homework;
 
-import com.kodilla.collections.interfaces.Circle;
-import com.kodilla.collections.interfaces.Shape;
-import com.kodilla.collections.interfaces.Square;
-import com.kodilla.collections.interfaces.Triangle;
 import com.kodilla.collections.interfaces.homework.Audi;
 import com.kodilla.collections.interfaces.homework.BMW;
 import com.kodilla.collections.interfaces.homework.Car;
 import com.kodilla.collections.interfaces.homework.Mercedes;
 
+
 public class CarUtils {
 
     public static void describeCar(Car car) {
 
+        car.increaseSpeed();
         System.out.println("-----------------------------");
         System.out.println("Brand: " + getCarBrand(car));
         System.out.println("Speed: " + car.getSpeed());

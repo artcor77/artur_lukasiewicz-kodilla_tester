@@ -25,18 +25,17 @@ public class CarsApplication {
 
         Random random = new Random();
         int drawnCars = random.nextInt(3);
-        int increaseSpeed = getRandomIncreaseSpeed();
-        if (drawnCars == 1)
-            return new Mercedes(increaseSpeed);
-        else if (drawnCars == 2)
-            return new BMW(increaseSpeed);
+        int speed = getRandomIncreaseSpeed(random);
+        if (drawnCars == 0)
+            return new Mercedes(speed, 0);
+        else if (drawnCars == 1)
+            return new BMW(speed, 0);
         else {
-            return new Audi(increaseSpeed);
+            return new Audi(speed, 0);
         }
-        return drawCar();
     }
 
-    private static int getRandomIncreaseSpeed() {
+    private static int getRandomIncreaseSpeed(Random random) {
         return random.nextInt(250);
     }
 }
