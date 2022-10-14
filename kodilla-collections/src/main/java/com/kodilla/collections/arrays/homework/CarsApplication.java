@@ -9,6 +9,8 @@ import java.util.Random;
 
 public class CarsApplication {
 
+    private static Random random;
+
     public static void main(String[] args) {
 
         Random random = new Random();
@@ -26,7 +28,7 @@ public class CarsApplication {
         int increaseSpeed = getRandomIncreaseSpeed();
         if (drawnCars == 1)
             return new Mercedes(increaseSpeed);
-        else if (increaseSpeed == 2)
+        else if (drawnCars == 2)
             return new BMW(increaseSpeed);
         else {
             return new Audi(increaseSpeed);
