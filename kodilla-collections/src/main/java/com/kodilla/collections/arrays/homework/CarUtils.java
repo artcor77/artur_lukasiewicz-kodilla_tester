@@ -15,7 +15,7 @@ public class CarUtils {
 
         System.out.println("-----------------------------");
         System.out.println("Brand: " + getCarBrand(car));
-        System.out.println("Speed: " + getRandomIncreaseSpeed());
+        System.out.println("Speed: " + car.getSpeed());
     }
 
     private static String getCarBrand(Car car) {

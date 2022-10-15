@@ -22,7 +22,7 @@ public class CarsApplication {
 
     public static Car drawCar() {
 
-        int increaseSpeed = getRandomIncreaseSpeed();
+        int increaseSpeed = 50;
         int drawnCars = random.nextInt(3);
         if (drawnCars == 0)
             return new Mercedes(increaseSpeed,0);
@@ -33,7 +33,9 @@ public class CarsApplication {
         }
     }
 
-    public static int getRandomIncreaseSpeed() {
-        return random.nextInt(200)+1;
+    public static int getRandomIncreaseSpeed(Car car) {
+        for (int i = 0; i < random.nextInt(5) + 1; i++)
+            car.increaseSpeed();
+        return ////;
     }
 }
