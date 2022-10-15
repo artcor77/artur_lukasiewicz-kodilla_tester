@@ -5,15 +5,17 @@ import com.kodilla.collections.interfaces.homework.BMW;
 import com.kodilla.collections.interfaces.homework.Car;
 import com.kodilla.collections.interfaces.homework.Mercedes;
 
+import static com.kodilla.collections.arrays.homework.CarsApplication.drawCar;
+import static com.kodilla.collections.arrays.homework.CarsApplication.getRandomIncreaseSpeed;
+
 
 public class CarUtils {
 
     public static void describeCar(Car car) {
 
-        car.increaseSpeed();
         System.out.println("-----------------------------");
         System.out.println("Brand: " + getCarBrand(car));
-        System.out.println("Speed: " + car.getSpeed());
+        System.out.println("Speed: " + getRandomIncreaseSpeed());
     }
 
     private static String getCarBrand(Car car) {
