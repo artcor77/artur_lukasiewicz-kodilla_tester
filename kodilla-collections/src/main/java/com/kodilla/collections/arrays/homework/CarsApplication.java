@@ -20,22 +20,27 @@ public class CarsApplication {
             CarUtils.describeCar(car);
     }
 
-    public static Car drawCar() {
+    private static Car drawRandomCar() {
 
-        int increaseSpeed = 50;
         int drawnCars = random.nextInt(3);
         if (drawnCars == 0)
-            return new Mercedes(increaseSpeed,0);
+            return new Mercedes();
         else if (drawnCars == 1)
-            return new BMW(increaseSpeed, 0);
+            return new BMW();
         else {
-            return new Audi(increaseSpeed, 0);
+            return new Audi();
         }
     }
 
-    public static int getRandomIncreaseSpeed(Car car) {
+    private static void increaseSpeedRandom(Car car) {
+
         for (int i = 0; i < random.nextInt(5) + 1; i++)
             car.increaseSpeed();
-        return ////;
+    }
+
+    private static Car drawCar() {
+        Car car = drawRandomCar();
+        increaseSpeedRandom(car);
+        return car;
     }
 }

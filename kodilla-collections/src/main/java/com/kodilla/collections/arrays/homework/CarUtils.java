@@ -5,9 +5,6 @@ import com.kodilla.collections.interfaces.homework.BMW;
 import com.kodilla.collections.interfaces.homework.Car;
 import com.kodilla.collections.interfaces.homework.Mercedes;
 
-import static com.kodilla.collections.arrays.homework.CarsApplication.drawCar;
-import static com.kodilla.collections.arrays.homework.CarsApplication.getRandomIncreaseSpeed;
-
 
 public class CarUtils {
 
