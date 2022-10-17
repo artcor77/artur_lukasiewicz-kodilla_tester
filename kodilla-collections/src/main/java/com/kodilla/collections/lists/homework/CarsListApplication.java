@@ -28,7 +28,9 @@ public class CarsListApplication {  //Dodaj do niego klasę CarsListApplication 
 
         //Dodaj do kolekcji kilka różnych samochodów i wyświetl w pętli for-each zawartość kolekcji,
         // używając przygotowanej wcześniej metody describeCar z klasy CarUtils
-
+        for (Car car : cars) {
+            CarUtils.describeCar(car);
+        }
 
         // Usuń jeden z samochodów z kolekcji, używając do tego metody remove(int index)
         cars.remove(1);
