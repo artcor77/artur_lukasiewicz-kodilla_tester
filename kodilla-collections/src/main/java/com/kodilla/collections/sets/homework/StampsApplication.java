@@ -18,6 +18,7 @@ public class StampsApplication {
 
         System.out.println(stamps.size());
         for (Stamp stamp : stamps) {
+            if (stamps.size() == 5)
             System.out.println(stamp);
         }
     }
