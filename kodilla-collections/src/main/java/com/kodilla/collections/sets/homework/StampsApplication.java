@@ -17,9 +17,8 @@ public class StampsApplication {
         stamps.add(new Stamp("C", 1.7, true));  // taki sam
 
         System.out.println(stamps.size());
-        for (Stamp stamp : stamps) {
-            if (stamps.size() == 5)
+
+        if (stamps.size() == 5)
             System.out.println("OK");
         }
-    }
 }
