@@ -1,8 +1,5 @@
 package com.kodilla.collections.adv.maps.homework;
 
-import com.kodilla.collections.adv.maps.complex.Student;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
