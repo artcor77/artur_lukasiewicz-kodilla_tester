@@ -16,10 +16,7 @@ class FlightFinderTestSuite {
         //when
         List<Flight> departuresResult = flightFinder.findFlightsFrom("WRO");
         //then
-        List<Flight> expectedList = new ArrayList<>();
-        expectedList.add(new Flight("WRO", "WAW"));
-        expectedList.add(new Flight("WRO", "GDA"));
-        assertEquals(expectedList, departuresResult);
+        assertEquals(List.of(new Flight("WRO", "WAW"), new Flight("WRO", "GDA")), departuresResult);
     }
 
     @Test
@@ -29,9 +26,6 @@ class FlightFinderTestSuite {
         //when
         List<Flight> arrivalsResult = flightFinder.findFlightsTo("WRO");
         //then
-        List<Flight> expectedList = new ArrayList<>();
-        expectedList.add(new Flight("WAW", "WRO"));
-        expectedList.add(new Flight("GDA", "WRO"));
-        assertEquals(expectedList, arrivalsResult);
+        assertEquals(List.of(new Flight("WAW", "WRO"), new Flight("GDA", "WRO")), arrivalsResult);
     }
 }
