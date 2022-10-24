@@ -1,5 +1,6 @@
 package com.kodilla.stream;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,8 +13,8 @@ public class UsersManager {
         List<String> filterChemistGroupUsernames = filterChemistGroupUsernames();  // 2 sposób
         System.out.println(filterChemistGroupUsernames);
 
-        List<String> filterOlderThanFourty = filterOlderThanFourty();
-        System.out.println(filterOlderThanFourty);
+        List<User> filterOlderThan = filterOlderThan(40);
+        System.out.println(filterOlderThan);
     }
 
     private static void processUsersStream() {  // 1 sposób
@@ -36,12 +37,11 @@ public class UsersManager {
         return usernames;
     }
 
-    public static List<String> filterOlderThanFourty() {
+    public static List<User> filterOlderThan(int age) {
 
-        List<String> users = UsersRepository.getUsersList()
+        List<User> users = UsersRepository.getUsersList()
                 .stream()
-                .filter(user -> user.getAge() > 40)
-                .map(UsersManager::getUserName)
+                .filter(user -> user.getAge() > age)
                 .collect(Collectors.toList());
 
         return users;

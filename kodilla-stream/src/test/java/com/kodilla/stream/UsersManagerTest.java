@@ -2,6 +2,7 @@ package com.kodilla.stream;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -16,21 +17,23 @@ class UsersManagerTest {
         //when
         List<String> chemistsUsernames = UsersManager.filterChemistGroupUsernames();
         //then
-        assertEquals(List.of(new User("Walter White", 50, 7, "Chemists").getUsername(),
-                new User("Gale Boetticher", 44, 2, "Chemists").getUsername()), chemistsUsernames);
+        List<String> usernames = new ArrayList<>();
+        usernames.add("Walter White");
+        usernames.add("Gale Boetticher");
+        assertEquals(usernames, chemistsUsernames);
     }
 
     @Test
-    public void testFilterOlderThanFourty() {
+    public void testFilterOlderThan() {
         //given
         UsersManager usersManager = new UsersManager();
         //when
-        List<String> usersOlderThanFourty = UsersManager.filterOlderThanFourty();
+        List<User> usersOlderThan = UsersManager.filterOlderThan(40);
         //then
-        assertEquals(List.of(new User("Walter White", 50, 7, "Chemists").getUsername(),
-                new User("Gus Firing", 49, 0, "Board").getUsername(),
-                new User("Gale Boetticher", 44, 2, "Chemists").getUsername(),
-                new User("Mike Ehrmantraut", 57, 0, "Security").getUsername()), usersOlderThanFourty);
+        assertEquals(List.of(new User("Walter White", 50, 7, "Chemists"),
+                new User("Gus Firing", 49, 0, "Board"),
+                new User("Gale Boetticher", 44, 2, "Chemists"),
+                new User("Mike Ehrmantraut", 57, 0, "Security")), usersOlderThan);
     }
 
     @Test
