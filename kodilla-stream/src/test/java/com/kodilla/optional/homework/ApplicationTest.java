@@ -13,16 +13,16 @@ public class ApplicationTest {
 
         Student student = new Student("Meghan", teacher);
 
-        assertEquals("John", Application.undefinedTeacher(student));
+        assertEquals("John", teacher.getName());
     }
 
     @Test
     public void shouldReturnTeacherNullName() {
 
-        Teacher teacher = null;
+        Teacher teacher = new Teacher(null);
 
         Student student = new Student("Meghan", teacher);
 
-        assertEquals("<undefined>", Application.undefinedTeacher(student) );
+        assertEquals("<undefined>", student.getTeacher());
     }
 }
