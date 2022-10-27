@@ -15,22 +15,20 @@ public class ForumStats {
     }
 
     public static double getAverageNumberOfPostsInGroupOfUsersYoungerThan(List<User> users, int age) {
-         double average = UsersRepository.getUsersList()
+         double average = users
                 .stream()
                 .filter(user -> user.getAge() < age)
                 .mapToDouble(n -> n.getNumberOfPost())
-                .average()
-                .getAsDouble();
+                .average().orElse(0);
         return average;
     }
 
     public static double getAverageNumberOfPostsInGroupOfUsersOlderThan(List<User> users, int age) {
-        double average = UsersRepository.getUsersList()
+        double average = users
                 .stream()
                 .filter(user -> user.getAge() >= 40)
                 .mapToDouble(n -> n.getNumberOfPost())
-                .average()
-                .getAsDouble();
+                .average().orElse(0);
         return average;
     }
 }
