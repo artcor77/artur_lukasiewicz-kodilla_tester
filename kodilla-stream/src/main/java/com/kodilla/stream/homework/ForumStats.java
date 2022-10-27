@@ -1,36 +1,36 @@
 package com.kodilla.stream.homework;
 
+import com.kodilla.stream.User;
 import com.kodilla.stream.UsersRepository;
 
+import java.util.List;
+
 public class ForumStats {
-
     public static void main(String[] args) {
-
-        System.out.println("Younger group: " + youngerGroup());
-        System.out.println("Older group: " + olderGroup());
+        List<User> users = UsersRepository.getUsersList();
+        System.out.println("Average of posts in group of users younger than: "
+                + getAverageNumberOfPostsInGroupOfUsersYoungerThan(users, 40));
+        System.out.println("Average of posts in group of users older than: "
+                + getAverageNumberOfPostsInGroupOfUsersOlderThan(users, 40));
     }
 
-    public static double youngerGroup() {
-
-        double youngerGroup = UsersRepository.getUsersList()
+    public static double getAverageNumberOfPostsInGroupOfUsersYoungerThan(List<User> users, int age) {
+         double average = UsersRepository.getUsersList()
                 .stream()
-                .filter(user -> user.getAge() < 40)
+                .filter(user -> user.getAge() < age)
                 .mapToDouble(n -> n.getNumberOfPost())
                 .average()
                 .getAsDouble();
-
-        return youngerGroup;
+        return average;
     }
 
-    public static double olderGroup() {
-
-        double youngerGroup = UsersRepository.getUsersList()
+    public static double getAverageNumberOfPostsInGroupOfUsersOlderThan(List<User> users, int age) {
+        double average = UsersRepository.getUsersList()
                 .stream()
                 .filter(user -> user.getAge() >= 40)
                 .mapToDouble(n -> n.getNumberOfPost())
                 .average()
                 .getAsDouble();
-
-        return youngerGroup;
+        return average;
     }
 }
