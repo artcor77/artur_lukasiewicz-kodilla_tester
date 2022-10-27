@@ -4,10 +4,8 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class Student {
-
     private String name;
     private Teacher teacher;
-
     public Student(String name, Teacher teacher) {
         this.name = name;
         this.teacher = teacher;
@@ -18,10 +16,7 @@ public class Student {
     }
 
     public Optional<Teacher> getTeacher() {
-
-        Optional<Teacher> optionalTeacher = Optional.ofNullable(teacher);
-
-        return optionalTeacher;
+        return Optional.ofNullable(teacher);
     }
 
     @Override

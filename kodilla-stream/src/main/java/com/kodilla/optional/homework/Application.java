@@ -5,9 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class Application {
-
     public static void main(String[] args) {
-
         List<Student> students = new ArrayList<>();
         students.add(new Student("Meghan", new Teacher("John")));
         students.add(new Student("Danny", new Teacher(null)));
