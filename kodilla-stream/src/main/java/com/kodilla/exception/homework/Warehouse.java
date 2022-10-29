@@ -1,20 +1,20 @@
 package com.kodilla.exception.homework;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Warehouse {
-    List<Order> orders = new ArrayList<>();
-    public void addOrder(Order order) {
-        List<Order> newOrder = orders;
-        newOrder.add(order);
+    private List<Order> orders = new ArrayList<>();   //Lista zamówień
+
+    public Order addOrder(Order order) {   //Dodaje zamówienia do listy
+        orders.add(order);
+        return order;
     }
 
-    public List<Order> getOrder(String number) {
-        List<Order> numberOfOrder = orders
+    public Order getOrder(String number) throws OrderDoesntExistException {  //Wyszukuje konkretne zamówienie z wyjątkiem
+        return orders
                 .stream()
                 .filter(order -> order.getNumber() == number)
-                .collect(Collectors.toList());
-        return numberOfOrder;
+                .findFirst()
+                .orElseThrow(OrderDoesntExistException::new);
     }
 }
