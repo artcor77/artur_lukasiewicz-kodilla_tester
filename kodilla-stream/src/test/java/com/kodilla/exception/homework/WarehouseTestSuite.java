@@ -2,6 +2,8 @@ package com.kodilla.exception.homework;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.function.BooleanSupplier;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class WarehouseTestSuite {
@@ -15,15 +17,14 @@ class WarehouseTestSuite {
         assertThrows(OrderDoesntExistException.class, () -> warehouse.getOrder("0"));
     }
     @Test
-    public void testIsOrderInWarehouse() throws OrderDoesntExistException {
+    public void testGetOrder() throws OrderDoesntExistException {
         // given
         Warehouse warehouse = new Warehouse();
         warehouse.addOrder(new Order("123"));
         warehouse.addOrder(new Order("456"));
-
         // when
-        Order isOrderInWarehouse = warehouse.getOrder("123");
+        Order result = warehouse.getOrder("123");
         // then
-        assertEquals(isOrderInWarehouse.getNumber(), warehouse.getOrder("123").getNumber());
+        assertEquals(result, warehouse.getOrder("123"));
     }
 }
