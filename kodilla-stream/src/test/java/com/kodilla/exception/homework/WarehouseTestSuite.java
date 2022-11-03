@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class WarehouseTestSuite {
 
     @Test
-    public void testGetOrder_withException() {
+    public void shouldThrowExceptionWhenOrderDoesNotExist() {
         //given
         Warehouse warehouse = new Warehouse();
         //when
@@ -17,7 +17,7 @@ class WarehouseTestSuite {
         assertThrows(OrderDoesntExistException.class, () -> warehouse.getOrder("0"));
     }
     @Test
-    public void testGetOrder() throws OrderDoesntExistException {
+    public void shouldNotThrowExceptionWhenOrderExists() throws OrderDoesntExistException {
         // given
         Warehouse warehouse = new Warehouse();
         warehouse.addOrder(new Order("123"));
@@ -25,6 +25,6 @@ class WarehouseTestSuite {
         // when
         Order result = warehouse.getOrder("123");
         // then
-        assertEquals(result, warehouse.getOrder("123"));
+        assertEquals(result, new Order("123"));   //nadpisana metoda equals & hashCode w klasie Order
     }
 }
