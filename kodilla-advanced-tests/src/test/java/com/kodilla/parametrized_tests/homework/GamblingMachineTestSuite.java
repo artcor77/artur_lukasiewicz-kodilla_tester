@@ -15,15 +15,23 @@ class GamblingMachineTestSuite {
     private GamblingMachine gamblingMachine = new GamblingMachine();
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/invalidNumbers.csv", numLinesToSkip = 1)
-    public void shouldGamblingMachineWorks_withException(String numbers) {
+    @CsvFileSource(resources = "/invalidNumbers.csv")
+    public void shouldThrowExceptionWhenNumbersAreInvalid(String numbers) {
+        String[] arrayNumbers = numbers.split(",");  //Tablica string(csv). Znak(kolumna) oddzielony przecinkiem.
+        Set<String> setNumbers = new HashSet<>(Arrays.asList(arrayNumbers));  //Set z tablicy string (elementy się nie powtarzają)
+        Set<Integer> expected = setNumbers  //Nowy expected set. Zamieniam string na int.
+                .stream()
+                .map(Integer::parseInt).collect(Collectors.toSet());
+        assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(expected));
+    }
+    @ParameterizedTest
+    @CsvFileSource(resources = "/validateNumbers.csv")
+    public void shouldNotThrowExceptionWhenNumbersAreValidate(String numbers) throws InvalidNumbersException {
         String[] arrayNumbers = numbers.split(",");
         Set<String> setNumbers = new HashSet<>(Arrays.asList(arrayNumbers));
         Set<Integer> expected = setNumbers
                 .stream()
                 .map(Integer::parseInt)
                 .collect(Collectors.toSet());
-        assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(expected));
     }
-
 }
