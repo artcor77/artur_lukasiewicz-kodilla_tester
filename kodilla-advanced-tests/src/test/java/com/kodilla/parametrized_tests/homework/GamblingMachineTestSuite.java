@@ -6,6 +6,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -33,5 +34,11 @@ class GamblingMachineTestSuite {
                 .stream()
                 .map(Integer::parseInt)
                 .collect(Collectors.toSet());
+        int count = gamblingMachine.howManyWins(expected);
+        boolean expectedNumbers = count > 0 && count <6;
+        if (count<1)
+            return;
+        assertTrue(expectedNumbers);
+        assertEquals(6, expected.size());
     }
 }

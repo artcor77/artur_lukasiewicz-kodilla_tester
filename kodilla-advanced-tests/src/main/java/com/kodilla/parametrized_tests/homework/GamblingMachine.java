@@ -18,7 +18,7 @@ public class GamblingMachine {
         return count;
     }
 
-    public void validateNumbers(Set<Integer> numbers) throws InvalidNumbersException {
+    private void validateNumbers(Set<Integer> numbers) throws InvalidNumbersException {
         if (isNotCorrectSize(numbers) || isAnyNumberOutOfDeclaredScope(numbers)) {
             throw new InvalidNumbersException();
         }
