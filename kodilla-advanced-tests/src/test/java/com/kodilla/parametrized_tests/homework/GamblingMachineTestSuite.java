@@ -35,7 +35,7 @@ class GamblingMachineTestSuite {
                 .map(Integer::parseInt)
                 .collect(Collectors.toSet());
         int count = gamblingMachine.howManyWins(validateNumbers);
-        boolean wins = count >= 0 && count < 7;
-        assertTrue(wins);
+        boolean zeroToSixWins = count >= 0 && count < 7;
+        assertTrue(zeroToSixWins);
     }
 }
