@@ -20,25 +20,22 @@ class GamblingMachineTestSuite {
     public void shouldThrowExceptionWhenNumbersAreInvalid(String numbers) {
         String[] arrayNumbers = numbers.split(",");  //Tablica string(csv). Znak(kolumna) oddzielony przecinkiem.
         Set<String> setNumbers = new HashSet<>(Arrays.asList(arrayNumbers));  //Set z tablicy string (elementy się nie powtarzają)
-        Set<Integer> expected = setNumbers  //Nowy expected set. Zamieniam string na int.
+        Set<Integer> invalidNumbers = setNumbers  //Nowy set z invalid numbers. Zamieniam string na int.
                 .stream()
                 .map(Integer::parseInt).collect(Collectors.toSet());
-        assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(expected));
+        assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(invalidNumbers));
     }
     @ParameterizedTest
     @CsvFileSource(resources = "/validateNumbers.csv")
     public void shouldNotThrowExceptionWhenNumbersAreValidate(String numbers) throws InvalidNumbersException {
         String[] arrayNumbers = numbers.split(",");
         Set<String> setNumbers = new HashSet<>(Arrays.asList(arrayNumbers));
-        Set<Integer> expected = setNumbers
+        Set<Integer> validateNumbers = setNumbers
                 .stream()
                 .map(Integer::parseInt)
                 .collect(Collectors.toSet());
-        int count = gamblingMachine.howManyWins(expected);
-        boolean expectedNumbers = count > 0 && count <6;
-        if (count<1)
-            return;
-        assertTrue(expectedNumbers);
-        assertEquals(6, expected.size());
+        int count = gamblingMachine.howManyWins(validateNumbers);
+        boolean wins = count >= 0 && count < 7;
+        assertTrue(wins);
     }
 }
