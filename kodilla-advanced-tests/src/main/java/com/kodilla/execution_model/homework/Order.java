@@ -1,6 +1,7 @@
 package com.kodilla.execution_model.homework;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Order {
     private double value;
