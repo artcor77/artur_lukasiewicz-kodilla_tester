@@ -53,11 +53,14 @@ class ShopTestSuite {
     }
     @Test
     public void shouldReturnCorrectOrdersFromValueRange() {
-        //Moze byc  w jednym tescie, czy:
-        //should...when the same values
-        //should...when values are out of range
-        assertEquals(Set.of(e, g), shop.getOrderByValueRange(800, 2500.39)); //Powinna być delta ??
+        assertEquals(Set.of(e, g), shop.getOrderByValueRange(800, 2500.39));
+    }
+    @Test
+    public void shouldReturnCorrectOrdersFromValueRangeWhenValuesAreTheSame() {
         assertEquals(Set.of(e, g), shop.getOrderByValueRange(800.6, 800.6));
+    }
+    @Test
+    public void shouldReturnCorrectOrdersFromValueRangeWhenValuesAreOutOfRange() {
         assertEquals(Set.of(), shop.getOrderByValueRange(5000, 8000));
     }
 }
