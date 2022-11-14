@@ -8,16 +8,26 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class WeatherAlertServiceTestSuite {
 
-    WeatherAlertService weatherAlertService = new WeatherAlertService();
-    Location location1 = Mockito.mock(Location.class);
-    Location location2 = Mockito.mock(Location.class);
-    Location location3 = Mockito.mock(Location.class);
+    private static WeatherAlertService initWeatherAlertService() {
+        WeatherAlertService weatherAlertService = new WeatherAlertService();
+        Location location1 = Mockito.mock(Location.class);
+        Location location2 = Mockito.mock(Location.class);
+        Location location3 = Mockito.mock(Location.class);
 
-    Client client1 = Mockito.mock(Client.class);
-    Client client2 = Mockito.mock(Client.class);
-    Client client3 = Mockito.mock(Client.class);
+        Client client1 = Mockito.mock(Client.class);
+        Client client2 = Mockito.mock(Client.class);
+        Client client3 = Mockito.mock(Client.class);
 
-    Notification notification = Mockito.mock(Notification.class);
+        Notification notification = Mockito.mock(Notification.class);
+        return weatherAlertService;
+    }
+
+    private WeatherAlertService weatherAlertService;
+
+    @BeforeEach
+    public void init() {
+        weatherAlertService = initWeatherAlertService();
+    }
 
     @Test
     public void notSubscribedClientShouldNotReceiveNotification() {
@@ -28,7 +38,7 @@ class WeatherAlertServiceTestSuite {
 
     @Test
     public void subscribedClientShouldReceiveNotification() {
-        weatherAlertService.addSubscribers(client2, location1);
+        weatherAlertService.addSubscribe(client2, location1);
 
         weatherAlertService.sendNotificationToAllSubscribers(notification);
 
@@ -37,10 +47,10 @@ class WeatherAlertServiceTestSuite {
 
     @Test
     public void notificationShouldBeSentToSubscribersForOneLocation() {
-        weatherAlertService.addSubscribers(client2, location1);
-        weatherAlertService.addSubscribers(client1, location2);
-        weatherAlertService.addSubscribers(client3, location3);
-        weatherAlertService.addSubscribers(client1, location3);
+        weatherAlertService.addSubscribe(client2, location1);
+        weatherAlertService.addSubscribe(client1, location2);
+        weatherAlertService.addSubscribe(client3, location3);
+        weatherAlertService.addSubscribe(client1, location3);
 
         weatherAlertService.sendNotificationToAllSubscribersForTheLocation(location3, notification);
 
@@ -50,9 +60,9 @@ class WeatherAlertServiceTestSuite {
 
     @Test
     public void notificationShouldBeSentToAllSubscribedClients() {
-        weatherAlertService.addSubscribers(client1, location1);
-        weatherAlertService.addSubscribers(client2, location2);
-        weatherAlertService.addSubscribers(client3, location3);
+        weatherAlertService.addSubscribe(client1, location1);
+        weatherAlertService.addSubscribe(client2, location2);
+        weatherAlertService.addSubscribe(client3, location3);
 
         weatherAlertService.sendNotificationToAllSubscribers(notification);
 
@@ -63,8 +73,8 @@ class WeatherAlertServiceTestSuite {
 
     @Test
     public void unsubscribedClientShouldNotReceiveNotification() {
-        weatherAlertService.addSubscribers(client1, location1);
-        weatherAlertService.addSubscribers(client2, location2);
+        weatherAlertService.addSubscribe(client1, location1);
+        weatherAlertService.addSubscribe(client2, location2);
         weatherAlertService.removeSubscriberFromAllLocations(client2);
 
         weatherAlertService.sendNotificationToAllSubscribers(notification);
@@ -74,10 +84,10 @@ class WeatherAlertServiceTestSuite {
 
     @Test
     public void clientWhoSubscribeMinOneLocationShouldReceiveNotification() {
-        weatherAlertService.addSubscribers(client1, location1);
-        weatherAlertService.addSubscribers(client2, location2);
-        weatherAlertService.addSubscribers(client3, location3);
-        weatherAlertService.addSubscribers(client1, location2);
+        weatherAlertService.addSubscribe(client1, location1);
+        weatherAlertService.addSubscribe(client2, location2);
+        weatherAlertService.addSubscribe(client3, location3);
+        weatherAlertService.addSubscribe(client1, location2);
         weatherAlertService.removeSubscriberFromLocation(client1, location1);
 
         weatherAlertService.sendNotificationToAllSubscribers(notification);
@@ -89,10 +99,10 @@ class WeatherAlertServiceTestSuite {
 
     @Test
     public void shouldWorkWhenLocationIsRemoved() {
-        weatherAlertService.addSubscribers(client1, location1);
-        weatherAlertService.addSubscribers(client2, location2);
-        weatherAlertService.addSubscribers(client3, location3);
-        weatherAlertService.addSubscribers(client1, location2);
+        weatherAlertService.addSubscribe(client1, location1);
+        weatherAlertService.addSubscribe(client2, location2);
+        weatherAlertService.addSubscribe(client3, location3);
+        weatherAlertService.addSubscribe(client1, location2);
         weatherAlertService.removeLocation(location2);
 
         weatherAlertService.sendNotificationToAllSubscribers(notification);

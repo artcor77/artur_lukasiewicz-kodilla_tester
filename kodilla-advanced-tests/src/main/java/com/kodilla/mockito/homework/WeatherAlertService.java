@@ -11,7 +11,7 @@ public class WeatherAlertService {
 
     private Map<Location, Set<Client>> clients = new HashMap<>();
 
-    public void addSubscribers(Client client, Location location) {
+    public void addSubscribe(Client client, Location location) {
         if (!clients.containsKey(location)) {
             clients.put(location, new HashSet<>());
         }
@@ -19,9 +19,7 @@ public class WeatherAlertService {
     }
 
     public void removeSubscriberFromLocation(Client client, Location location) {
-        if (clients.containsKey(location)) {
-            clients.get(location).remove(client);
-        }
+        clients.get(location).remove(client);
     }
 
     public void removeLocation(Location location) {
