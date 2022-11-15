@@ -4,11 +4,13 @@ import com.kodilla.mockito.Notification;
 import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class WeatherAlertServiceTestSuite {
 
-    private static WeatherAlertService initWeatherAlertService() {
         WeatherAlertService weatherAlertService = new WeatherAlertService();
         Location location1 = Mockito.mock(Location.class);
         Location location2 = Mockito.mock(Location.class);
@@ -19,14 +21,10 @@ class WeatherAlertServiceTestSuite {
         Client client3 = Mockito.mock(Client.class);
 
         Notification notification = Mockito.mock(Notification.class);
-        return weatherAlertService;
-    }
-
-    private WeatherAlertService weatherAlertService;
 
     @BeforeEach
     public void init() {
-        weatherAlertService = initWeatherAlertService();
+
     }
 
     @Test
