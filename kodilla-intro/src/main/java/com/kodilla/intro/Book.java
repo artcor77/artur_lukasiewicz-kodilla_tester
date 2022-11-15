@@ -4,18 +4,16 @@ public class Book {
     private String author;
     private String title;
 
-    public Book(String author, String title){
+    private Book(String author, String title) {
         this.author = author;
         this.title = title;
     }
-    public static String of(String author, String title){
+    private static Book of(String author, String title) {
         Book book = new Book(author, title);
-        return book.of(author, title);
+        return book;
     }
 
-    public static void main(String[] args){
-        String book = Book.of("AAA","AAA");
-
+    public static void main(String[] args) {
+        Book book = Book.of("J.R.R. Tolkien","The Lord of The Rings");
     }
-
 }
