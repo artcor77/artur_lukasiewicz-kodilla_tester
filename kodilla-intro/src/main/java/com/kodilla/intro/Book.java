@@ -4,13 +4,12 @@ public class Book {
     private String author;
     private String title;
 
-    public Book(String author, String title) {
+    private Book(String author, String title) {
         this.author = author;
         this.title = title;
     }
-    public static Book of(String author, String title) {
+    private static Book of(String author, String title) {
         Book book = new Book(author, title);
-        System.out.println("Title: " + title + ", " + "Author: " + author);
         return book;
     }
 
