@@ -11,59 +11,69 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class WeatherAlertServiceTestSuite {
 
-        WeatherAlertService weatherAlertService = new WeatherAlertService();
-        Location location1 = Mockito.mock(Location.class);
-        Location location2 = Mockito.mock(Location.class);
-        Location location3 = Mockito.mock(Location.class);
+        private WeatherAlertService weatherAlertService;
+        private Location location1;
+        private Location location2;
+        private Location location3;
 
-        Client client1 = Mockito.mock(Client.class);
-        Client client2 = Mockito.mock(Client.class);
-        Client client3 = Mockito.mock(Client.class);
+        private Client client1;
+        private Client client2;
+        private Client client3;
 
-        Notification notification = Mockito.mock(Notification.class);
-
+        private Notification notification;
     @BeforeEach
-    public void init() {
-
+    void init() {
+        weatherAlertService = new WeatherAlertService();
+        location1 = Mockito.mock(Location.class);
+        location2 = Mockito.mock(Location.class);
+        location3 = Mockito.mock(Location.class);
+        client1 = Mockito.mock(Client.class);
+        client2 = Mockito.mock(Client.class);
+        client3 = Mockito.mock(Client.class);
+        notification = Mockito.mock(Notification.class);
     }
 
     @Test
     public void notSubscribedClientShouldNotReceiveNotification() {
+        //given
         weatherAlertService.sendNotificationToAllSubscribers(notification);
-
+        //when then
         Mockito.verify(client1, Mockito.never()).receive(notification);
     }
 
     @Test
     public void subscribedClientShouldReceiveNotification() {
-        weatherAlertService.addSubscribe(client2, location1);
-
+        //given
+        weatherAlertService.addClientToLocation(client2, location1);
+        //when
         weatherAlertService.sendNotificationToAllSubscribers(notification);
-
+        //then
         Mockito.verify(client2).receive(notification);
     }
 
     @Test
     public void notificationShouldBeSentToSubscribersForOneLocation() {
-        weatherAlertService.addSubscribe(client2, location1);
-        weatherAlertService.addSubscribe(client1, location2);
-        weatherAlertService.addSubscribe(client3, location3);
-        weatherAlertService.addSubscribe(client1, location3);
-
+        //given
+        weatherAlertService.addClientToLocation(client2, location1);
+        weatherAlertService.addClientToLocation(client1, location2);
+        weatherAlertService.addClientToLocation(client3, location3);
+        weatherAlertService.addClientToLocation(client1, location3);
+        //when
         weatherAlertService.sendNotificationToAllSubscribersForTheLocation(location3, notification);
-
+        //then
         Mockito.verify(client3).receive(notification);
         Mockito.verify(client1).receive(notification);
     }
 
     @Test
     public void notificationShouldBeSentToAllSubscribedClients() {
-        weatherAlertService.addSubscribe(client1, location1);
-        weatherAlertService.addSubscribe(client2, location2);
-        weatherAlertService.addSubscribe(client3, location3);
-
+        //given
+        weatherAlertService.addClientToLocation(client1, location1);
+        weatherAlertService.addClientToLocation(client2, location2);
+        weatherAlertService.addClientToLocation(client3, location3);
+        //when
         weatherAlertService.sendNotificationToAllSubscribers(notification);
-
+        //then
         Mockito.verify(client1).receive(notification);
         Mockito.verify(client2).receive(notification);
         Mockito.verify(client3).receive(notification);
@@ -71,25 +81,27 @@ class WeatherAlertServiceTestSuite {
 
     @Test
     public void unsubscribedClientShouldNotReceiveNotification() {
-        weatherAlertService.addSubscribe(client1, location1);
-        weatherAlertService.addSubscribe(client2, location2);
+        //given
+        weatherAlertService.addClientToLocation(client1, location1);
+        weatherAlertService.addClientToLocation(client2, location2);
         weatherAlertService.removeSubscriberFromAllLocations(client2);
-
+        //when
         weatherAlertService.sendNotificationToAllSubscribers(notification);
-
+        //then
         Mockito.verify(client1).receive(notification);
     }
 
     @Test
     public void clientWhoSubscribeMinOneLocationShouldReceiveNotification() {
-        weatherAlertService.addSubscribe(client1, location1);
-        weatherAlertService.addSubscribe(client2, location2);
-        weatherAlertService.addSubscribe(client3, location3);
-        weatherAlertService.addSubscribe(client1, location2);
+        //given
+        weatherAlertService.addClientToLocation(client1, location1);
+        weatherAlertService.addClientToLocation(client2, location2);
+        weatherAlertService.addClientToLocation(client3, location3);
+        weatherAlertService.addClientToLocation(client1, location2);
         weatherAlertService.removeSubscriberFromLocation(client1, location1);
-
+        //when
         weatherAlertService.sendNotificationToAllSubscribers(notification);
-
+        //then
         Mockito.verify(client1).receive(notification);
         Mockito.verify(client2).receive(notification);
         Mockito.verify(client3).receive(notification);
@@ -97,14 +109,15 @@ class WeatherAlertServiceTestSuite {
 
     @Test
     public void shouldWorkWhenLocationIsRemoved() {
-        weatherAlertService.addSubscribe(client1, location1);
-        weatherAlertService.addSubscribe(client2, location2);
-        weatherAlertService.addSubscribe(client3, location3);
-        weatherAlertService.addSubscribe(client1, location2);
+        //given
+        weatherAlertService.addClientToLocation(client1, location1);
+        weatherAlertService.addClientToLocation(client2, location2);
+        weatherAlertService.addClientToLocation(client3, location3);
+        weatherAlertService.addClientToLocation(client1, location2);
         weatherAlertService.removeLocation(location2);
-
+        //when
         weatherAlertService.sendNotificationToAllSubscribers(notification);
-
+        //then
         Mockito.verify(client1).receive(notification);
         Mockito.verify(client3).receive(notification);
     }

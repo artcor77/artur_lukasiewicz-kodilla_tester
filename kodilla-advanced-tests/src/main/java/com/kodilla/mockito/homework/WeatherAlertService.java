@@ -11,7 +11,7 @@ public class WeatherAlertService {
 
     private Map<Location, Set<Client>> clients = new HashMap<>();
 
-    public void addSubscribe(Client client, Location location) {
+    public void addClientToLocation(Client client, Location location) {
         if (!clients.containsKey(location)) {
             clients.put(location, new HashSet<>());
         }
