@@ -22,14 +22,16 @@ class WeatherAlertServiceTestSuite {
 
         private Notification notification;
     @BeforeEach
-    void init() {
+    public void init() {
         weatherAlertService = new WeatherAlertService();
         location1 = Mockito.mock(Location.class);
         location2 = Mockito.mock(Location.class);
         location3 = Mockito.mock(Location.class);
+
         client1 = Mockito.mock(Client.class);
         client2 = Mockito.mock(Client.class);
         client3 = Mockito.mock(Client.class);
+
         notification = Mockito.mock(Notification.class);
     }
 
