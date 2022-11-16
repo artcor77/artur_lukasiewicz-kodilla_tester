@@ -1,14 +1,12 @@
 package com.kodilla.intro;
 
 public class User {
-    User[] user;
     String name;
     int age;
 
-    public User(String name, int age){
+    public User(String name, int age) {
         this.name = name;
         this.age = age;
-
     }
 
     public static void main(String[] args) {
@@ -26,16 +24,13 @@ public class User {
             sum += user[i].age;
         }
         sum = sum / user.length;
-        System.out.println("Average of users age: "+sum);
+        System.out.println("Average of users age: " + sum);
 
         double averageAge = sum ;
         for (int i = 0; i < user.length; i++) {
-            if (user[i].age<averageAge){
-                System.out.println(user[i].name + " " + user[i].age);
+            if (user[i].age < averageAge) {
+                System.out.println(user[i].name + " is " + user[i].age);
             }
         }
-
-
     }
-
 }
