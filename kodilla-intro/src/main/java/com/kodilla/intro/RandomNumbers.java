@@ -26,8 +26,6 @@ public class RandomNumbers {
                 maxN = number;
             }
             sum = sum + number;
-            System.out.println("Number: " + number);
-            System.out.println("Actual sum = " + sum);
         }
     }
 
@@ -35,7 +33,6 @@ public class RandomNumbers {
 
         RandomNumbers randomNumbers = new RandomNumbers();
         randomNumbers.randomNumbersTo5000();
-        System.out.println("==================");
         System.out.println("min: " + randomNumbers.findMin());
         System.out.println("max: " + randomNumbers.findMax());
     }
