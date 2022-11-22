@@ -15,14 +15,4 @@ public class ApplicationTest {
 
         assertEquals("John", teacher.getName());
     }
-
-    @Test
-    public void shouldReturnTeacherNullName() {
-
-        Teacher teacher = new Teacher(null);
-
-        Student student = new Student("Meghan", teacher);
-
-        assertEquals("<undefined>", student.getTeacher());
-    }
 }
