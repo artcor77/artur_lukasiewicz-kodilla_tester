@@ -1,10 +1,11 @@
 package com.kodilla.spring.basic.spring_dependency_injection.homework;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import javax.naming.NameNotFoundException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -108,6 +109,24 @@ class CalculatorTestSuite {
         double result = bean.multiply(-5, -5);
         //Then
         assertEquals(25, result);
+    }
+
+    @Test
+    public void shouldReturnCorrectValueForDivideWhenOneNumberIsZero() {
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic");
+        Calculator bean = context.getBean(Calculator.class);
+        //When Then
+        assertEquals(Double.NaN, bean.divide(10, 0));
+    }
+
+    @Test
+    public void shouldReturnCorrectValueForDivideWhenTwoNumbersAreZero() {
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic");
+        Calculator bean = context.getBean(Calculator.class);
+        //When Then
+        assertEquals(Double.NaN, bean.divide(0, 0));
     }
 
     @Test

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 public class Display {
 
     public double display(double value) {
+        System.out.println(value);
         return value;
     }
 }
