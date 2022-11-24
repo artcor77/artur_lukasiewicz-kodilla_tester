@@ -117,7 +117,7 @@ class CalculatorTestSuite {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic");
         Calculator bean = context.getBean(Calculator.class);
         //When Then
-        assertEquals(Double.NaN, bean.divide(10, 0));
+        assertEquals(Double.POSITIVE_INFINITY, bean.divide(10, 0));
     }
 
     @Test
@@ -138,18 +138,5 @@ class CalculatorTestSuite {
         double result = bean.divide(-100, -50);
         //Then
         assertEquals(2, result);
-    }
-
-    @Test
-    public void shouldDisplayWork() {
-        //Given
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic");
-        Calculator bean = context.getBean(Calculator.class);
-        double result = bean.divide(-100, -50);
-        //When
-        Display bean2 = context.getBean(Display.class);
-        double value = bean2.display(result);
-        //Then
-        assertEquals(2, value);
     }
 }
