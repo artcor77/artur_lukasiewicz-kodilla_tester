@@ -6,7 +6,7 @@ public class SUV implements Car {
 
     @Override
     public boolean hasHeadlightsTurnedOn(LocalTime localTime) {
-        if ((localTime.isAfter(LocalTime.of(19, 59, 59)) || localTime.isBefore(LocalTime.of(6, 0)))) {
+        if ((localTime.isAfter(LIGHTSTURNON) || localTime.isBefore(LIGHTSTURNOFF))) {
             return true;
         }
         return false;

@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.lang.reflect.Array;
+import java.time.Month;
+import java.time.MonthDay;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,20 +15,13 @@ import java.util.Random;
 public class CarFactory {
 
     @Bean
-    public SUV createSUV() {
-        return new SUV();
-    }
-
-    @Bean
-    public Car carSelection() {
+    public Car carForTheSeason() {
         Car car;
-        Random generator = new Random();
-        List<String> seasons = Arrays.asList("Winter", "Spring", "Summer", "Autumn");
-        int select = generator.nextInt(3);
-        seasons.get(select);
-        if (select == 0) {
+        if (MonthDay.now().isAfter(MonthDay.of(Month.DECEMBER, 20)) &&
+                MonthDay.now().isBefore(MonthDay.of(Month.MARCH, 23))) {
             car = new SUV();
-        } else if (select == 2) {
+        } else if (MonthDay.now().isAfter(MonthDay.of(Month.JUNE, 20)) &&
+                MonthDay.now().isBefore(MonthDay.of(Month.SEPTEMBER, 23))) {
             car = new Cabrio();
         } else {
             car = new Sedan();
