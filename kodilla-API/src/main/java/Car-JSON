@@ -1,0 +1,19 @@
+{
+"brand":"Toyota",
+"model":"RAV4",
+"engine":2.5,
+"seats":[
+    "option1":{
+        "colour":"Black",
+        "material":"Alcantara"},
+    "option2":{
+            "colour":"Black",
+            "material":"Leather"},
+    "option3":{
+            "colour":"Brown",
+            "material":"Leather"},
+    "option4":{
+            "colour":"White",
+            "material":"Leather"}
+    ]
+}
