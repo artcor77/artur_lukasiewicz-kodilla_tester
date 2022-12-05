@@ -1,0 +1,32 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<xs:schema xlmns:xs = "http://www.w3.org/2001/XMLSchema"
+           targetNamespace = "http://www.kodilla.com"// Nie zrozumiałem dostępności w przestrzeni nazw...
+           xmlns = "http://www.kodilla.com"
+           elementFormDefault = "qualified">
+
+    <xs:element name = "SUV">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name = "brand" type = "xs:string"/>
+                <xs:element name = "model" type = "xs:string" type = "integer"/>   // 2 typy w ten sposób ?
+                <xs:element name = "engine" type = "xs:decimal"/>
+                <xs:element name = "colour" type = "xs:string"/>
+                <xs:element name = "maxLoad" type = "xs:decimal" type = "xs:string"
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
+
+
+<car>
+    <c:SUV xmlns:c = "http://www.kodilla.com"
+           xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation = "http://www.kodilla.com" car.xsd>
+        <c:brand> Toyota </c:brand>
+        <c:model> RAV4 </c:brand>
+        <c:engine> 2.5 </c:engine>
+        <c:colour> white </c:colour>
+        <c:maxLoad> 750kg </c:maxLoad>
+    </c:SUV>
+</car>
