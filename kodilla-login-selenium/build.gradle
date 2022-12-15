@@ -13,6 +13,9 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.9.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    implementation(group: 'com.github.lewka', name: 'ocular', version: '1.0.5') {
+        exclude group: "net.sf", module: "jargs"
+    }
 }
 
 test {
