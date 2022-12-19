@@ -5,10 +5,10 @@ Feature: Is it Fizz or Buzz?
     Then I should be told <answer>
     Examples:
       | number | answer |
-      | 0 | "None" |
-      | 1 | "None" |
+      | zero | "FizzBuzz" |
+      | one | "None" |
       | three | "Fizz" |
-      | 5 | "Buzz" |
-      | 15 | "FizzBuzz" |
-      | 9 | "Fizz" |
-      | 10 | "Buzz" |
+      | five | "Buzz" |
+      | fifteen | "FizzBuzz" |
+      | nine | "Fizz" |
+      | ten | "Buzz" |
