@@ -11,6 +11,10 @@ public class Wallet {
         this.balance += money;
     }
 
+    public void debit(int amount) {
+        this.balance -= amount;
+    }
+
     public int getBalance() {
         return balance;
     }
