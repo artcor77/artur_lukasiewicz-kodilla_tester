@@ -56,5 +56,17 @@ public class WalletSteps implements En {
         Then("Message {string}", (String string) -> {
             Assert.assertEquals("Not recognize money. Try again.", string);
         });
+        //scenario 3:
+        Given("there is $100 in my wallet", () -> {
+            wallet.deposit(100);
+            Assert.assertEquals(100, wallet.getBalance());
+        });
+        When("I check the balance of my wallet", () -> {
+            Cashier cashier = new Cashier(cashSlot);
+            cashier.checkBalance(wallet);
+        });
+        Then("I should see that the balance is $100", () -> {
+            Assert.assertEquals("Balance in your wallet is: $100", cashSlot.getMessage());
+        });
     }
 }
