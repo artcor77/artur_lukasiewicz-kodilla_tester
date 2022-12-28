@@ -1,5 +1,7 @@
 package wallet;
 
+import jdk.internal.org.jline.utils.Display;
+
 public class Wallet {
 
     private int balance = 0;

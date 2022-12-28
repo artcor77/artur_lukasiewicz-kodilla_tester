@@ -17,4 +17,8 @@ public class Cashier {
             cashSlot.dispense(amount);
         }
     }
+
+    public void checkBalance(Wallet wallet) {
+        cashSlot.setMessage("Balance in your wallet is: $" + wallet.getBalance());
+    }
 }
