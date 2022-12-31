@@ -28,8 +28,6 @@ public class AllegroTestingApp {
         electronicsSelect.selectByIndex(3);
         categoriesCombo.submit();
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.urlToBe("https://allegro.pl/kategoria/elektronika?string=mavic%20mini"));
 
         List<WebElement> articleList = driver.findElements(By.cssSelector("section > article"));
         for (WebElement article : articleList) {
