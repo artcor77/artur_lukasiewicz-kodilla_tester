@@ -1,0 +1,5 @@
+cd //katalog z dockerfile//
+
+docker build -t card .
+
+docker run -P -d card
